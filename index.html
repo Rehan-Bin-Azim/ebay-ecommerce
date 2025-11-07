@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eBay</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header class="main-header">
+        <section class="top-bar">
+            <div class="container">
+                <nav class="top-links">
+                    <a href="./html/signin.html">Hi! Sign in</a> or <a href="./html/register.html">register</a> | <a href="./html/dailydeals.html">Daily Deals</a> | <a href="./html/helpandcontact.html">Help & Contact</a>
+                </nav>
+            </div>
+        </section>
+
+        <div class="navbar">
+            <div class="container">
+                <a href="#" class="logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/EBay_logo.svg/1280px-EBay_logo.svg.png" alt="eBay Logo">
+                </a>
+                <form class="search-area" action="/search" method="GET" role="search">
+                    <div class="search-dropdown">
+                        <select name="category" aria-label="Select a category for search">
+                            <option value="all">All Categories</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="fashion">Fashion</option>
+                            <option value="motors">Motors</option>
+                            <option value="collectibles">Collectibles & Art</option>
+                            <option value="home">Home & Garden</option>
+                        </select>
+                    </div>
+                    <input type="text" name="query" placeholder="Search for anything" aria-label="Search for anything">
+                    <button type="submit" class="search-btn" aria-label="Search">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </button>
+                </form>
+                <nav class="user-actions">
+                    <a href="#" aria-label="Notifications">
+                        <i class="fas fa-bell" aria-hidden="true"></i>
+                        <span class="visually-hidden">Notifications</span>
+                    </a>
+                    <a href="#" aria-label="Your shopping cart">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i> Your Cart
+                    </a>
+                </nav>
+            </div>
+        </div>  
+    </header>
+    <nav class="categories-nav">
+        <div class="container">
+          <ul class="nav-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Saved</a></li>
+      
+            <!-- Electronics with Mega Menu -->
+            <li class="nav-item">
+              <a href="#">Electronics</a>
+              <div class="mega-menu">
+                <div class="menu-content">
+                  <div class="menu-columns">
+                    <div class="menu-col">
+                      <h4>Most popular categories</h4>
+                      <ul>
+                        <li><a href="#">Smartphones and accessories</a></li>
+                        <li><a href="#">Video games and consoles</a></li>
+                        <li><a href="#">Computers and tablets</a></li>
+                        <li><a href="#">Cameras and photos</a></li>
+                        <li><a href="#">Camera drones</a></li>
+                        <li><a href="#">Refurbished</a></li>
+                        <li><a href="#">Smart home</a></li>
+                      </ul>
+                    </div>
+                    <div class="menu-col">
+                      <h4>More categories</h4>
+                      <ul>
+                        <li><a href="#">Apple</a></li>
+                        <li><a href="#">Samsung</a></li>
+                        <li><a href="#">Portable audio & headphones</a></li>
+                        <li><a href="#">Smart watches</a></li>
+                        <li><a href="#">Deals</a></li>
+                        <li><a href="#">Sell on eBay</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <section class="menu-banner">
+                    <img src="./images/dummy_820x400_000000_d9f7a5.png" alt="Electronics Banner">
+                    <div class="banner-text">
+                      <h3>Electronics & Technology</h3>
+                      <p>Check the offers</p>
+                      <a href="#" class="btn primary-btn">Shop now</a>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </li>
+      
+            <!-- Other categories (simple links for now) -->
+            <!-- Motors with Mega Menu -->
+            <li class="nav-item">
+                <a href="#">Motors</a>
+                <div class="mega-menu">
+                  <div class="menu-content">
+                    <div class="menu-columns">
+                      <div class="menu-col">
+                        <h4>Most popular categories</h4>
+                        <ul>
+                          <li><a href="#">Smartphones and accessories</a></li>
+                          <li><a href="#">Video games and consoles</a></li>
+                          <li><a href="#">Computers and tablets</a></li>
+                          <li><a href="#">Cameras and photos</a></li>
+                          <li><a href="#">Camera drones</a></li>
+                          <li><a href="#">Refurbished</a></li>
+                          <li><a href="#">Smart home</a></li>
+                        </ul>
+                      </div>
+                      <div class="menu-col">
+                        <h4>More categories</h4>
+                        <ul>
+                          <li><a href="#">Apple</a></li>
+                          <li><a href="#">Samsung</a></li>
+                          <li><a href="#">Portable audio & headphones</a></li>
+                          <li><a href="#">Smart watches</a></li>
+                          <li><a href="#">Deals</a></li>
+                          <li><a href="#">Sell on eBay</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <section class="menu-banner">
+                      <img src="./images/dummy_820x400_000000_d9f7a5.png" alt="Motors Banner">
+                      <div class="banner-text">
+                        <h3>Motors & Parts</h3>
+                        <p>Find your next ride</p>
+                        <a href="#" class="btn primary-btn">Shop Parts</a>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </li>
+            <li><a href="#">Fashion</a></li>
+            <li><a href="#">Collectibles & Art</a></li>
+            <li><a href="#">Sports</a></li>
+            <li><a href="#">Health & Beauty</a></li>
+            <li><a href="#">Industrial equipment</a></li>
+            <li><a href="#">Home & Garden</a></li>
+            <li class="nav-item">
+                <a href="#">Sell</a>
+                <div class="mega-menu">
+                  <div class="menu-content">
+                    <div class="menu-columns">
+                      <div class="menu-col">
+                        <ul>
+                          <li><a href="#">How to create a listing</a></li>
+                          <li><a href="#">Join our growth program</a></li>
+                          <li><a href="#">Seller center</a></li>
+                          <li><a href="#">Seller updates</a></li>
+                          <li><a href="#">Seller customer service</a></li>
+                          <li><a href="#">eBay managed payments</a></li>
+                        </ul>
+                      </div>
+              
+                      <div class="menu-col">
+                        <ul>
+                          <li><a href="#">Learn to sell</a></li>
+                          <li><a href="#">eBay stores</a></li>
+                          <li><a href="#">eBay fees</a></li>
+                          <li><a href="#">Selling limits</a></li>
+                        </ul>
+                      </div>
+                    </div>
+              
+                    <section class="menu-banner">
+                        <img src="./images/dummy_820x400_000000_d9f7a5.png" alt="Start selling banner">
+                        <div class="banner-text">
+                          <h3>Start Selling Today</h3>
+                          <p>Join a community of sellers.</p>
+                          <a href="#" class="btn primary-btn">Learn More</a>
+                        </div>
+                      </div>
+                  </section>
+                </div>
+              </li>
+              
+              
+          </ul>
+        </div>
+      </nav>
+    <main>
+        <section class="hero-banner">
+            <div class="container">
+                <div class="hero-slide">
+                    <img src="./images/bird-8788491_1280.jpg" alt="Tech Deals">
+                    <div class="hero-text">
+                        <h2>Tech Deals of the Year</h2>
+                        <p>Save big on top gadgets and accessories.</p>
+                        <button class="btn primary-btn">Shop Tech</button>
+                    </div>
+                </div>
+                <div class="hero-slide">
+                    <img src="./images/pexels-pixabay-326055.jpg" alt="Fashion Trends">
+                    <div class="hero-text">
+                        <h2>Style for Every Season</h2>
+                        <p>Explore the latest trends in fashion.</p>
+                        <button class="btn primary-btn">Discover Fashion</button>
+                    </div>
+                </div>
+                <div class="hero-slide">
+                    <img src="./images/dummy_620x420_000000_d9f7a5.png" alt="Smart Home">
+                    <div class="hero-text">
+                        <h2>Smart Home Revolution</h2>
+                        <p>Upgrade your life with smart devices.</p>
+                        <button class="btn primary-btn">Explore Devices</button>
+                    </div>
+                </div>
+                <div class="hero-slide">
+                    <img src="./images/bird-8788491_1280.jpg" alt="Daily Deals">
+                    <div class="hero-text">
+                        <h2>Don't Miss Today's Deals</h2>
+                        <p>All in one place, with new offers daily.</p>
+                        <button class="btn primary-btn">See All Deals</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="shopping-made-easy">
+            <div class="container">
+                <h3>Shopping made easy</h3>
+                <p>Start exploring all that eBay has to offer.</p>
+                <button class="btn secondary-btn">Start now</button>
+            </div>
+        </section>
+
+        <section class="category-grid">
+            <div class="container">
+                <h2>The future in your hands</h2>
+                <div class="grid-items">
+                    <a href="#" class="grid-item">
+                        <img src="https://via.placeholder.com/80x80" alt="Laptop">
+                        <span>Laptops</span>
+                    </a>
+                    <a href="#" class="grid-item">
+                        <img src="https://via.placeholder.com/80x80" alt="Computer Parts">
+                        <span>Computer parts</span>
+                    </a>
+                    <a href="#" class="grid-item">
+                        <img src="https://via.placeholder.com/80x80" alt="Smartphone">
+                        <span>Smartphones</span>
+                    </a>
+                     <a href="#" class="grid-item">
+                        <img src="https://via.placeholder.com/80x80" alt="Enterprise Networking">
+                        <span>Enterprise networking</span>
+                    </a>
+                     <a href="#" class="grid-item">
+                        <img src="https://via.placeholder.com/80x80" alt="Tablets">
+                        <span>Tablets and eReaders</span>
+                    </a>
+                     <a href="#" class="grid-item">
+                        <img src="https://via.placeholder.com/80x80" alt="Storage">
+                        <span>Storage and blank media</span>
+                    </a>
+                    <a href="#" class="grid-item">
+                        <img src="https://via.placeholder.com/80x80" alt="Lenses">
+                        <span>Lenses and filters</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="trending-on-ebay">
+            <div class="container">
+                <h2>Trending on eBay</h2>
+                <div class="trending-items">
+                    <a href="#" class="trending-card">
+                        <img src="https://via.placeholder.com/120x120" alt="Watch">
+                        <span>Watches</span>
+                    </a>
+                    <a href="#" class="trending-card">
+                        <img src="https://via.placeholder.com/120x120" alt="Motor">
+                        <span>Motors</span>
+                    </a>
+                    <a href="#" class="trending-card">
+                        <img src="https://via.placeholder.com/120x120" alt="Luxury Bag">
+                        <span>Luxury</span>
+                    </a>
+                    <a href="#" class="trending-card">
+                        <img src="https://via.placeholder.com/120x120" alt="Collectibles">
+                        <span>Collectibles and art</span>
+                    </a>
+                    <a href="#" class="trending-card">
+                        <img src="https://via.placeholder.com/120x120" alt="Home and Garden">
+                        <span>Home and garden</span>
+                    </a>
+                    <a href="#" class="trending-card">
+                        <img src="https://via.placeholder.com/120x120" alt="Trading Cards">
+                        <span>Trading Cards</span>
+                    </a>
+                    <a href="#" class="trending-card">
+                        <img src="https://via.placeholder.com/120x120" alt="Health & Beauty">
+                        <span>Health & Beauty</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="today-deals">
+            <div class="container">
+                <h2>Today's Deals <span class="subtitle">See all deals</span></h2>
+                <div class="deals-grid">
+                    <div class="deal-card promo-card large-promo">
+                        <img src="https://via.placeholder.com/400x250" alt="Drone" style="opacity: 0;">
+                        <h3>Today's Deals. All in one place.</h3>
+                        <button class="btn primary-btn">Shop now</button>
+                    </div>
+
+                    <div class="deal-card product-item">
+                        <img src="https://via.placeholder.com/150x150" alt="Hair Dryer">
+                        <div class="discount">25% OFF</div>
+                        <p class="title">Dyson Supersonic Hair Dryer HD07</p>
+                        <p class="price">$279.99 <del>$379.99</del></p>
+                    </div>
+                    <div class="deal-card product-item">
+                        <img src="https://via.placeholder.com/150x150" alt="Robot Vacuum">
+                        <div class="discount">25% OFF</div>
+                        <p class="title">iRobot Roomba j7+ (7550) Wi-Fi</p>
+                        <p class="price">$349.99 <del>$469.99</del></p>
+                    </div>
+                    <div class="deal-card product-item">
+                        <img src="https://via.placeholder.com/150x150" alt="Coffee Maker">
+                        <div class="discount">25% OFF</div>
+                        <p class="title">Breville the Barista Express Impress</p>
+                        <p class="price">$599.99 <del>$799.99</del></p>
+                    </div>
+                    <div class="deal-card product-item">
+                        <img src="https://picsum.photos/seed/iphone/150/150" alt="iPhone 14">
+                        <div class="discount">25% OFF</div>
+                        <p class="title">Apple iPhone 14 Pro Max Unlocked</p>
+                        <p class="price">$699.99 <del>$999.99</del></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <div class="container">
+                <div class="help-content">
+                    <h2 aria-level="2">Get help exactly when you need it</h2>
+                    <p>Find the right solution to all of your questions.</p>
+                    <button class="btn primary-btn">Start here</button>
+                </div>
+                 <div class="help-image">
+                    <img src="https://via.placeholder.com/300x200" alt="Woman on phone" style="opacity: 0;">
+                </div>
+            </div>
+        </section>
+
+        <section class="accessories-promo">
+            <div class="container">
+                <div class="promo-text">
+                    <h2>Endless accessories. Epic prices.</h2>
+                    <p>From essential upgrades to your ride.</p>
+                    <button class="btn secondary-btn">Shop now</button>
+                </div>
+                <div class="promo-images">
+                    <img src="https://via.placeholder.com/120x120" alt="Car Accessory 1">
+                    <img src="https://via.placeholder.com/120x120" alt="Car Accessory 2">
+                    <img src="https://via.placeholder.com/120x120" alt="Car Accessory 3">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>Buy</h4>
+                    <ul>
+                        <li><a href="#">Registration</a></li>
+                        <li><a href="#">eBay Money Back Guarantee</a></li>
+                        <li><a href="#">Bidding & buying help</a></li>
+                        <li><a href="#">Stores</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Sell</h4>
+                    <ul>
+                        <li><a href="#">Start selling</a></li>
+                        <li><a href="#">How to sell</a></li>
+                        <li><a href="#">Business selling</a></li>
+                        <li><a href="#">Affiliates</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Tools & Apps</h4>
+                    <ul>
+                        <li><a href="#">Developers</a></li>
+                        <li><a href="#">Security center</a></li>
+                        <li><a href="#">Site map</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Stay connected</h4>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook-square"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter-square"></i> Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 1995-2025 eBay Inc. All Rights Reserved. <a href="#">User Agreement</a>, <a href="#">Privacy</a>, <a href="#">Payments Terms of Use</a>, <a href="#">Cookies</a>, <a href="#">Your Privacy Choices</a> and <a href="#">AdChoice</a>.</p>
+                <div class="country-selector"> 
+                    <img src="https://picsum.photos/seed/flag/20/14" alt="US Flag" width="20">
+                    <span>United States</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" async></script>
+</body>
+</html>
