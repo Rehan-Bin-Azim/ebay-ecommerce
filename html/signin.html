@@ -17,10 +17,11 @@
                 </a>
                 <h1>Sign in</h1>
             </div>
-            <form action="#" method="POST" class="auth-form">
+            <form id="signin-form" class="auth-form">
+                <div id="error-message" style="color: red; margin-bottom: 15px; text-align: center; display: none;"></div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
@@ -41,5 +42,26 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('signin-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            // Check for the specific credentials
+            if (username === 'Rehan' && password === 'Rehan123') {
+                // On successful login, save user state and redirect
+                sessionStorage.setItem('loggedInUser', username);
+                window.location.href = '../index.html';
+            } else {
+                // Show an error message
+                errorMessage.textContent = 'Invalid username or password.';
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>

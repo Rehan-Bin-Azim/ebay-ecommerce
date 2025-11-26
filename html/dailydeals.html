@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Deals - eBay</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <section class="top-bar">
+            <div class="container">
+                <nav class="top-links">
+                    <a href="./signin.html">Hi! Sign in</a> or <a href="./register.html">register</a> | <a href="./dailydeals.html">Daily Deals</a> | <a href="./helpandcontact.html">Help & Contact</a>
+                </nav>
+            </div>
+        </section>
+
+        <div class="navbar">
+            <div class="container">
+                <a href="../index.html" class="logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/EBay_logo.svg/1280px-EBay_logo.svg.png" alt="eBay Logo">
+                </a>
+                <form class="search-area" action="/search" method="GET" role="search">
+                    <div class="search-dropdown">
+                        <select name="category" aria-label="Select a category for search">
+                            <option value="all">All Categories</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="fashion">Fashion</option>
+                            <option value="motors">Motors</option>
+                            <option value="collectibles">Collectibles & Art</option>
+                            <option value="home">Home & Garden</option>
+                        </select>
+                    </div>
+                    <input type="text" name="query" placeholder="Search for anything" aria-label="Search for anything">
+                    <button type="submit" class="search-btn" aria-label="Search">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </button>
+                </form>
+                <nav class="user-actions">
+                    <a href="#" aria-label="Notifications">
+                        <i class="fas fa-bell" aria-hidden="true"></i>
+                        <span class="visually-hidden">Notifications</span>
+                    </a>
+                    <a href="./cart.html" aria-label="Your shopping cart" class="cart-link">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        <span class="cart-text">Your Cart</span>
+                        <span class="cart-count" style="display: none;">0</span>
+                    </a>
+                </nav>
+            </div>
+        </div>  
+    </header>
+
+    <main class="container">
+        <section class="today-deals">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Today's Deals</h1>
+            <div class="deals-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                
+                <div class="deal-card product-item" data-id="deal-001">
+                    <img src="https://picsum.photos/seed/laptop/200/200" alt="Laptop">
+                    <div class="discount">40% OFF</div>
+                    <p class="title">High-Performance Gaming Laptop</p>
+                    <p class="price">$899.99 <del>$1499.99</del></p>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <button class="wishlist-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+
+                <div class="deal-card product-item" data-id="deal-002">
+                    <img src="https://picsum.photos/seed/headphones/200/200" alt="Headphones">
+                    <div class="discount">50% OFF</div>
+                    <p class="title">Noise-Cancelling Wireless Headphones</p>
+                    <p class="price">$149.99 <del>$299.99</del></p>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <button class="wishlist-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+
+                <div class="deal-card product-item" data-id="deal-003">
+                    <img src="https://picsum.photos/seed/smartwatch/200/200" alt="Smartwatch">
+                    <div class="discount">35% OFF</div>
+                    <p class="title">Fitness Tracker Smartwatch</p>
+                    <p class="price">$129.99 <del>$199.99</del></p>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <button class="wishlist-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+
+                <div class="deal-card product-item" data-id="deal-004">
+                    <img src="https://picsum.photos/seed/kitchenaid/200/200" alt="Kitchen Mixer">
+                    <div class="discount">30% OFF</div>
+                    <p class="title">Professional Stand Mixer</p>
+                    <p class="price">$279.99 <del>$399.99</del></p>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <button class="wishlist-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+
+                <div class="deal-card product-item" data-id="deal-005">
+                    <img src="https://picsum.photos/seed/drone/200/200" alt="Camera Drone">
+                    <div class="discount">45% OFF</div>
+                    <p class="title">4K Camera Drone with GPS</p>
+                    <p class="price">$329.99 <del>$599.99</del></p>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <button class="wishlist-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+
+                <div class="deal-card product-item" data-id="deal-006">
+                    <img src="https://picsum.photos/seed/vacuum/200/200" alt="Robot Vacuum">
+                    <div class="discount">30% OFF</div>
+                    <p class="title">Smart Robot Vacuum Cleaner</p>
+                    <p class="price">$209.99 <del>$299.99</del></p>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <button class="wishlist-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+
+                <div class="deal-card product-item" data-id="deal-007">
+                    <img src="https://picsum.photos/seed/camera/200/200" alt="Digital Camera">
+                    <div class="discount">40% OFF</div>
+                    <p class="title">Mirrorless Digital Camera Body</p>
+                    <p class="price">$539.99 <del>$899.99</del></p>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <button class="wishlist-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+
+                <div class="deal-card product-item" data-id="deal-008">
+                    <img src="https://picsum.photos/seed/blender/200/200" alt="Blender">
+                    <div class="discount">50% OFF</div>
+                    <p class="title">High-Speed Personal Blender</p>
+                    <p class="price">$59.99 <del>$119.99</del></p>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <button class="wishlist-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>Buy</h4>
+                    <ul>
+                        <li><a href="#">Registration</a></li>
+                        <li><a href="#">eBay Money Back Guarantee</a></li>
+                        <li><a href="#">Bidding & buying help</a></li>
+                        <li><a href="#">Stores</a></li>
+                    </ul>
+                </div>
+                <!-- Other footer columns can be added here -->
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 1995-2025 eBay Inc. All Rights Reserved. <a href="#">User Agreement</a>, <a href="#">Privacy</a>, <a href="#">Payments Terms of Use</a>, <a href="#">Cookies</a>, <a href="#">Your Privacy Choices</a> and <a href="#">AdChoice</a>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Authentication Modal -->
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>You haven't created an account yet</h2>
+            <p>Please register or sign in to add items to your cart and wishlist.</p>
+            <div class="modal-actions">
+                <a href="./register.html" class="btn primary-btn">Register</a>
+                <a href="./signin.html" class="btn secondary-btn">Sign In</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addToCart(product) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Check if item already exists
+            const existingItemIndex = cart.findIndex(item => item.id === product.id);
+
+            if (existingItemIndex > -1) {
+                // If it exists, increase quantity
+                cart[existingItemIndex].quantity += 1;
+            } else {
+                // If not, add new item with quantity 1
+                product.quantity = 1;
+                cart.push(product);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`'${product.title}' has been added to your cart.`);
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const cartCountEl = document.querySelector('.cart-count');
+            if (cartCountEl) {
+                cartCountEl.textContent = totalItems;
+                cartCountEl.style.display = totalItems > 0 ? 'inline-block' : 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const loggedInUser = sessionStorage.getItem('loggedInUser');
+            const authModal = document.getElementById('auth-modal');
+            const topLinks = document.querySelector('.top-links');
+
+            if (loggedInUser) {
+                // User is logged in, update header
+                topLinks.innerHTML = `
+                    <span>Hi, ${loggedInUser}!</span> | 
+                    <a href="#" id="sign-out-link">Sign out</a> | 
+                    <a href="./dailydeals.html">Daily Deals</a> | 
+                    <a href="./helpandcontact.html">Help & Contact</a>
+                `;
+
+                document.getElementById('sign-out-link').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    sessionStorage.removeItem('loggedInUser');
+                    window.location.href = '../index.html';
+                });
+
+                // Enable direct actions for wishlist and cart
+                document.querySelectorAll('.wishlist-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        this.classList.toggle('active');
+                        this.querySelector('i').classList.toggle('far');
+                        this.querySelector('i').classList.toggle('fas'); // Toggle solid heart
+                    });
+                });
+
+                document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const productCard = e.target.closest('.product-item');
+                        const product = {
+                            id: productCard.dataset.id,
+                            title: productCard.querySelector('.title').textContent,
+                            price: productCard.querySelector('.price').textContent.split(' ')[0],
+                            image: productCard.querySelector('img').src
+                        };
+                        addToCart(product);
+                    });
+                });
+
+            } else {
+                // User is not logged in, modal logic remains
+                const actionButtons = document.querySelectorAll('.add-to-cart-btn, .wishlist-btn');
+                const showModal = () => authModal.classList.add('visible');
+                const hideModal = () => authModal.classList.remove('visible');
+
+                actionButtons.forEach(button => button.addEventListener('click', showModal));
+
+                authModal.addEventListener('click', (event) => {
+                    if (event.target === authModal) {
+                        hideModal();
+                    }
+                });
+                document.querySelector('.modal-content').addEventListener('click', e => e.stopPropagation());
+            }
+
+            updateCartCount(); // Initial cart count on page load
+        });
+    </script>
+</body>
+</html>

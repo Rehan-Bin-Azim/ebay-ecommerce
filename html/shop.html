@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - eBay</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: #f9fafb;
+            color: #333
+        }
+
+        a {
+            text-decoration: none;
+            color: #191919
+        }
+
+        a:hover {
+            text-decoration: none
+        }
+
+        .main-header {
+            background-color: white;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            max-width: 1400px;
+            margin: 0 auto
+        }
+
+        .logo img {
+            height: 40px;
+            vertical-align: middle
+        }
+
+        .search-area {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            margin: 0 20px;
+            max-width: 700px
+        }
+
+        .search-bar-wrapper {
+            display: flex;
+            width: 100%;
+            border: 1px solid #333;
+            border-radius: 30px;
+            overflow: hidden
+        }
+
+        .search-area input[type="text"] {
+            flex-grow: 1;
+            border: none;
+            padding: 12px 15px;
+            font-size: 16px;
+            outline: none
+        }
+
+        .search-area .search-dropdown {
+            border-right: 1px solid #e5e5e5
+        }
+
+        .search-area select {
+            border: none;
+            background: transparent;
+            padding: 0 15px;
+            height: 100%;
+            font-size: 14px;
+            color: #333;
+            outline: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            padding-right: 30px
+        }
+
+        .search-btn {
+            background-color: #0654ba;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 25px
+        }
+
+        .user-actions a {
+            color: #333;
+            font-size: 22px
+        }
+
+        .shop-container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 0 20px;
+            gap: 20px
+        }
+
+        .sidebar {
+            width: 250px;
+            flex-shrink: 0
+        }
+
+        .filter-section {
+            margin-bottom: 25px
+        }
+
+        .filter-section h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e5e5e5
+        }
+
+        .filter-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0
+        }
+
+        .filter-section li {
+            margin-bottom: 8px
+        }
+
+        .filter-section a,
+        .filter-section label {
+            font-size: 14px;
+            color: #333
+        }
+
+        .filter-section a:hover {
+            color: #0654ba;
+            text-decoration: underline
+        }
+
+        .filter-section input[type="checkbox"] {
+            margin-right: 8px;
+            accent-color: #0654ba
+        }
+
+        .main-content {
+            flex-grow: 1
+        }
+
+        .hero-banner {
+            margin-bottom: 30px
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px
+        }
+
+        .hero-main {
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            height: 320px;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+            color: #191919
+        }
+
+        .hero-main::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%)
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 450px
+        }
+
+        .hero-title {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1.1;
+            letter-spacing: -0.5px
+        }
+
+        .hero-sub {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: #333
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: #191919;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 15px;
+            transition: 0.2s
+        }
+
+        .hero-btn:hover {
+            background: #333;
+            transform: scale(1.02)
+        }
+
+        .cat-cards {
+            display: flex;
+            gap: 20px
+        }
+
+        .cat-card {
+            flex: 1;
+            background: #e8e8e8;
+            border-radius: 20px;
+            padding: 25px;
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+            transition: background 0.2s;
+            display: flex;
+            flex-direction: column
+        }
+
+        .cat-card:hover {
+            background: #dcdcdc;
+            cursor: pointer
+        }
+
+        .cat-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin: 0 0 15px 0;
+            line-height: 1.1;
+            color: #191919;
+            z-index: 2
+        }
+
+        .cat-arrow {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #191919
+        }
+
+        .cat-img {
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            width: 160px;
+            height: auto;
+            object-fit: contain
+        }
+
+        .product-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            background-color: #e5e5e5;
+            border: 1px solid #e5e5e5;
+            margin-top: 20px
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: row;
+            background-color: white;
+            padding: 20px;
+            gap: 20px
+        }
+
+        .product-image {
+            width: 200px;
+            height: 200px;
+            flex-shrink: 0
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            flex-grow: 1
+        }
+
+        .product-title {
+            font-size: 20px;
+            font-weight: 500;
+            margin: 0
+        }
+
+        .product-title a {
+            color: #0654ba
+        }
+
+        .product-title a:hover {
+            text-decoration: underline
+        }
+
+        .product-subtitle {
+            font-size: 14px;
+            color: #555
+        }
+
+        .product-condition {
+            font-size: 12px;
+            color: #555;
+            text-transform: uppercase;
+            font-weight: bold
+        }
+
+        .top-rated-badge {
+            font-size: 12px;
+            color: #365E32;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 5px
+        }
+
+        .product-price {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0
+        }
+
+        .product-shipping {
+            font-size: 14px;
+            color: #555
+        }
+
+        .seller-location {
+            font-size: 14px;
+            color: #767676;
+            margin-top: auto
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .product-actions button {
+            flex-grow: 1;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        @media(max-width:1024px) {
+            .search-area {
+                display: none
+            }
+
+            .sidebar {
+                display: none
+            }
+        }
+
+        @media(max-width:768px) {
+            .cat-cards {
+                flex-direction: column
+            }
+
+            .hero-main {
+                height: 250px
+            }
+
+            .product-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center
+            }
+
+            .product-image {
+                width: 100%;
+                height: auto;
+                max-width: 250px
+            }
+
+            .seller-location {
+                margin-top: 15px
+            }
+            .product-actions {
+                justify-content: center;
+                width: 100%;
+            }
+        }
+
+        .footer-wrapper {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+            font-family: Helvetica, Arial, sans-serif
+        }
+
+        .promo-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 50px
+        }
+
+        .p-card {
+            background-color: #e8e8e8;
+            border-radius: 16px;
+            padding: 40px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 220px;
+            overflow: hidden
+        }
+
+        .p-content {
+            z-index: 2;
+            max-width: 60%
+        }
+
+        .p-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #191919;
+            line-height: 1.2
+        }
+
+        .p-desc {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 25px;
+            line-height: 1.4
+        }
+
+        .p-btn {
+            display: inline-block;
+            background: #191919;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background 0.2s
+        }
+
+        .p-btn:hover {
+            background: #333
+        }
+
+        .p-img-container {
+            position: absolute;
+            right: 20px;
+            bottom: 0;
+            width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: flex-end
+        }
+
+        .p-img-container img {
+            width: 100%;
+            object-fit: contain
+        }
+
+        .shield-icon {
+            font-size: 40px;
+            margin-right: 10px;
+            vertical-align: middle
+        }
+
+        .guarantee-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px
+        }
+
+        .explore-section {
+            margin-top: 40px
+        }
+
+        .explore-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #191919
+        }
+
+        .explore-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px 40px
+        }
+
+        .explore-link {
+            font-size: 12px;
+            color: #333;
+            line-height: 1.5
+        }
+
+        .explore-link:hover {
+            text-decoration: underline;
+            color: #0654ba
+        }
+
+        @media(max-width:768px) {
+            .promo-cards {
+                grid-template-columns: 1fr
+            }
+
+            .explore-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="../index.html" class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/EBay_logo.svg/1280px-EBay_logo.svg.png"
+                    alt="eBay Logo">
+            </a>
+            <form class="search-area" action="/search" method="GET">
+                <div class="search-bar-wrapper">
+                    <input type="text" name="query" placeholder="Search for anything">
+                    <div class="search-dropdown">
+                        <select name="category" aria-label="Select a category for search">
+                            <option value="all">All Categories</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="fashion">Fashion</option>
+                            <option value="motors">Motors</option>
+                            <option value="collectibles">Collectibles & Art</option>
+                            <option value="home">Home & Garden</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="search-btn">Search</button>
+                </div>
+            </form>
+            <nav class="user-actions">
+                <a href="#" aria-label="Notifications"><i class="fas fa-bell" aria-hidden="true"></i></a>
+                <a href="./cart.html" aria-label="Your shopping cart"><i class="fas fa-shopping-cart" aria-hidden="true"></i></a>
+            </nav>
+        </div>
+    </header>
+    <div class="shop-container">
+        <aside class="sidebar">
+            <div class="filter-section">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#">Electronics</a></li>
+                    <li><a href="#">Smartphones</a></li>
+                    <li><a href="#">Laptops & Netbooks</a></li>
+                    <li><a href="#">Cameras & Photo</a></li>
+                    <li><a href="#">Video Game Consoles</a></li>
+                    <li><a href="#">Home Audio</a></li>
+                </ul>
+            </div>
+            <div class="filter-section">
+                <h3>Condition</h3>
+                <ul>
+                    <li><label><input type="checkbox" name="condition" value="new"> New</label></li>
+                    <li><label><input type="checkbox" name="condition" value="used"> Used</label></li>
+                    <li><label><input type="checkbox" name="condition" value="refurbished"> Certified
+                            Refurbished</label></li>
+                </ul>
+            </div>
+            <div class="filter-section">
+                <h3>Price</h3>
+                <ul>
+                    <li><a href="#">Under $50.00</a></li>
+                    <li><a href="#">$50.00 to $150.00</a></li>
+                    <li><a href="#">Over $150.00</a></li>
+                </ul>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="hero-banner">
+                <div class="hero-grid">
+                    <div class="hero-main">
+                        <div class="hero-content">
+                            <div class="hero-title">Reconditioned tech</div>
+                            <div class="hero-sub">See the savings on refurb devices</div>
+                            <a href="#" class="hero-btn">View the deal</a>
+                        </div>
+                    </div>
+                    <div class="cat-cards">
+                        <div class="cat-card">
+                            <div class="cat-title">Smartphones and smartwatches</div>
+                            <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <img src="https://pngimg.com/d/smart_watch_PNG23.png" class="cat-img" alt="Watch">
+                        </div>
+                        <div class="cat-card">
+                            <div class="cat-title">Computers and accessories</div>
+                            <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <img src="https://pngimg.com/d/laptop_PNG101774.png" class="cat-img" alt="Laptop">
+                        </div>
+                        <div class="cat-card">
+                            <div class="cat-title">Tablets and eReaders</div>
+                            <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <img src="https://pngimg.com/d/tablet_PNG86001.png" class="cat-img" alt="Tablet">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-list">
+                <div class="product-card" data-id="product1" data-title="Brand New Unlocked Smartphone 128GB - Latest Model" data-price="799.99" data-image="https://picsum.photos/seed/product1/200/200">
+                    <div class="product-image">
+                        <img src="https://picsum.photos/seed/product1/200/200" alt="Product Image">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title"><a href="#">Brand New Unlocked Smartphone 128GB - Latest Model</a>
+                        </h3>
+                        <p class="product-subtitle">The fastest chip ever in a smartphone. A huge leap in battery life.
+                        </p>
+                        <span class="product-condition">Brand New</span>
+                        <span class="top-rated-badge">Top Rated Plus</span>
+                        <p class="product-price">$799.99</p>
+                        <p class="product-shipping">Free 3 day shipping</p>
+                        <p class="seller-location">from United States</p>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="wishlist-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-id="product2" data-title="Professional Grade DSLR Camera with 18-55mm Lens" data-price="450.00" data-image="https://picsum.photos/seed/product2/200/200">
+                    <div class="product-image">
+                        <img src="https://picsum.photos/seed/product2/200/200" alt="Product Image">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title"><a href="#">Professional Grade DSLR Camera with 18-55mm Lens</a></h3>
+                        <p class="product-subtitle">Capture stunning photos and 4K video. Excellent condition.</p>
+                        <span class="product-condition">Used</span>
+                        <p class="product-price">$450.00</p>
+                        <p class="product-shipping">+$15.50 shipping</p>
+                        <p class="seller-location">from Japan</p>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="wishlist-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-id="product3" data-title="Certified Refurbished Noise Cancelling Headphones" data-price="179.00" data-image="https://picsum.photos/seed/product3/200/200">
+                    <div class="product-image">
+                        <img src="https://picsum.photos/seed/product3/200/200" alt="Product Image">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title"><a href="#">Certified Refurbished Noise Cancelling Headphones</a></h3>
+                        <p class="product-subtitle">Like-new condition with two-year warranty. World-class quiet.</p>
+                        <span class="product-condition">Certified Refurbished</span>
+                        <span class="top-rated-badge">Top Rated Plus</span>
+                        <p class="product-price">$179.00</p>
+                        <p class="product-shipping">Free shipping</p>
+                        <p class="seller-location">from United States</p>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="wishlist-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-id="product4" data-title="Ultra-Thin 14&quot; Business Laptop - Core i7, 16GB RAM" data-price="620.50" data-image="https://picsum.photos/seed/product4/200/200">
+                    <div class="product-image">
+                        <img src="" alt="Product Image">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title"><a href="#">Ultra-Thin 14" Business Laptop - Core i7, 16GB RAM</a>
+                        </h3>
+                        <p class="product-subtitle">Powerful and portable for professionals on the go. Minor cosmetic
+                            wear.</p>
+                        <span class="product-condition">Used</span>
+                        <p class="product-price">$620.50</p>
+                        <p class="product-shipping">Free 4 day shipping</p>
+                        <p class="seller-location">from Canada</p>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="wishlist-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-id="product5" data-title="Next-Gen Gaming Console - Disc Version - Brand New Sealed" data-price="499.00" data-image="https://picsum.photos/seed/product5/200/200">
+                    <div class="product-image">
+                        <img src="https://picsum.photos/seed/product5/200/200" alt="Product Image">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title"><a href="#">Next-Gen Gaming Console - Disc Version - Brand New
+                                Sealed</a></h3>
+                        <p class="product-subtitle">Experience lightning-fast loading and an all-new generation of
+                            games.</p>
+                        <span class="product-condition">Brand New</span>
+                        <span class="top-rated-badge">Top Rated Plus</span>
+                        <p class="product-price">$499.00</p>
+                        <p class="product-shipping">+$25.00 shipping</p>
+                        <p class="seller-location">from United Kingdom</p>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="wishlist-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <div class="footer-wrapper">
+        <div class="promo-cards">
+            <div class="p-card">
+                <div class="p-content">
+                    <div class="p-title">Irresistible deals await you!</div>
+                    <div class="p-desc">Discover unbeatable discounts on premium products – shop smarter</div>
+                    <a href="#" class="p-btn">Save more</a>
+                </div>
+                <div class="p-img-container">
+                    <img src="https://pngimg.com/d/smart_watch_PNG23.png" alt="Devices">
+                </div>
+            </div>
+            <div class="p-card">
+                <div class="p-content" style="max-width:80%">
+                    <div class="guarantee-header">
+                        <i class="fas fa-shield-alt shield-icon"></i>
+                        <div class="p-title" style="margin:0">eBay Money Back Guarantee</div>
+                    </div>
+                    <div class="p-desc">Get the item you ordered or get your money back, on virtually all items!</div>
+                    <a href="#" class="p-btn">Learn more</a>
+                </div>
+            </div>
+        </div>
+        <div class="explore-section">
+            <div class="explore-title">More to explore</div>
+            <div class="explore-grid">
+                <a href="#" class="explore-link">12V Waterproof Electronic Component</a>
+                <a href="#" class="explore-link">Alesis DM10 Electronic Percussion Drums</a>
+                <a href="#" class="explore-link">Alesis Qs8 In Electronic Keyboards</a>
+                <a href="#" class="explore-link">Bilingual Laptop In Electronic Learning</a>
+                <a href="#" class="explore-link">Burgertime In Electronic Games</a>
+                <a href="#" class="explore-link">Capacitance Electronic Disc System</a>
+                <a href="#" class="explore-link">Car Electronics</a>
+                <a href="#" class="explore-link">Casio Mt In Vintage Electronic Keyboards</a>
+                <a href="#" class="explore-link">Casio SK 1 Electronic Keyboards</a>
+                <a href="#" class="explore-link">Cheat Exam Electronics</a>
+                <a href="#" class="explore-link">Electronic Coyote Call</a>
+                <a href="#" class="explore-link">Electronic Dart Board Cricket</a>
+                <a href="#" class="explore-link">Electronic Diary In Littlest Pet Shop Toys</a>
+                <a href="#" class="explore-link">Electronic Dinosaur Toys</a>
+                <a href="#" class="explore-link">Electronic Drum Rack</a>
+                <a href="#" class="explore-link">Electronic Kick Drum</a>
+                <a href="#" class="explore-link">Electronic Lure In Vintage Fishing Lures</a>
+                <a href="#" class="explore-link">Electronic Metal Box</a>
+                <a href="#" class="explore-link">Electronic Muscle Stimulator</a>
+                <a href="#" class="explore-link">Electronic Paintball Hopper</a>
+                <a href="#" class="explore-link">Frogger Arcade In Electronic Games</a>
+                <a href="#" class="explore-link">Galaxian Arcade In Electronic Games</a>
+                <a href="#" class="explore-link">Jeopardy In Electronic Games</a>
+                <a href="#" class="explore-link">Korg Wavedrum Percussion Electronic</a>
+                <a href="#" class="explore-link">Kurzweil K2500 Indiana Electronic</a>
+                <a href="#" class="explore-link">Mesh Drum Heads Indiana Electronic</a>
+                <a href="#" class="explore-link">Monopoly Pinball In Electronic Games</a>
+                <a href="#" class="explore-link">Ms Pacman Game In Electronic Games</a>
+                <a href="#" class="explore-link">Nixie Clock In other Vintage Electronics</a>
+                <a href="#" class="explore-link">Philco Console In Vintage Electronics</a>
+                <a href="#" class="explore-link">Sentry Safe Electronic</a>
+                <a href="#" class="explore-link">Simmons Electronic Drum Set</a>
+                <a href="#" class="explore-link">Sony Vintage Electronics Parts</a>
+                <a href="#" class="explore-link">Tabletop Electronic Game</a>
+                <a href="#" class="explore-link">The Price Is Right In Electronic Games</a>
+                <a href="#" class="explore-link">Tomy Scramble In Electronic Games</a>
+                <a href="#" class="explore-link">Tomytronic In Electronic Games</a>
+                <a href="#" class="explore-link">Touch Tell In Electronic Games</a>
+                <a href="#" class="explore-link">Toy Keyboard In Electronic Keyboards</a>
+                <a href="#" class="explore-link">Tudor Electronic Football</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+            const wishlistButtons = document.querySelectorAll('.wishlist-btn');
+
+            function getCart() {
+                return JSON.parse(localStorage.getItem('cart')) || [];
+            }
+
+            function saveCart(cart) {
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productCard = e.target.closest('.product-card');
+                    const product = {
+                        id: productCard.dataset.id,
+                        title: productCard.dataset.title,
+                        price: productCard.dataset.price,
+                        image: productCard.dataset.image,
+                        quantity: 1
+                    };
+
+                    let cart = getCart();
+                    const existingItemIndex = cart.findIndex(item => item.id === product.id);
+
+                    if (existingItemIndex > -1) {
+                        cart[existingItemIndex].quantity += 1;
+                    } else {
+                        cart.push(product);
+                    }
+
+                    saveCart(cart);
+                    alert(`"${product.title}" has been added to your cart.`);
+                });
+            });
+
+            wishlistButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    alert('This item has been added to your wishlist! (Wishlist functionality is a future feature).');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
